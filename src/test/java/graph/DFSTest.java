@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class DFSTest {
     private Integer[] ans;
     private DFS dfs;
@@ -22,7 +24,7 @@ public class DFSTest {
     @Test
     public void testDfs() {
         System.out.println(dfs.dfs(node));
-        // assertArrayEquals(ans, dfs.dfs(node).toArray());
+        assertArrayEquals(ans, dfs.dfs(node).toArray());
     }
 
     private void initGraph() {

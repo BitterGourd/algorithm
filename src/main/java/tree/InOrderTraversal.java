@@ -7,6 +7,7 @@ import java.util.Stack;
 /**
  * 中序遍历二叉树
  * 左子树 ---> 根结点 ---> 右子树
+ * 第二次访问节点时放入结果集
  */
 class InOrderTraversal {
     /** 递归 */
@@ -36,6 +37,19 @@ class InOrderTraversal {
                 ans.add(node.val);  // Add after all left children
                 cur = node.right;
             }
+
+         /*********************************************************
+          *********              还可优化                  *********
+          *********************************************************
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            cur = stack.pop();
+            ans.add(cur.val);
+            cur = cur.right;
+          **********************************************************/
         }
 
         return ans;

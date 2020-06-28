@@ -5,6 +5,7 @@ import java.util.*;
 /**
  * 后序遍历二叉树
  * 左子树 ---> 右子树 ---> 根结点
+ * 第三次访问节点时放入结果集
  */
 class PostOrderTraversal {
     /** 递归 */

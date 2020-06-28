@@ -7,6 +7,7 @@ import java.util.Stack;
 /**
  * 前序遍历二叉树
  * 顺序：根结点 ---> 左子树 ---> 右子树
+ * 第一次访问节点时放入结果集
  */
 class PreOrderTraversal {
 
@@ -30,16 +31,12 @@ class PreOrderTraversal {
         TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
             if (cur != null) {
-                // 1.遍历根节点
+                stack.push(cur);
                 ans.add(cur.val);   // Add before going to children
-                // 3.遍历右子树
-                // 先把当前根节点右子树入栈，等当前根节点左子树遍历完毕再遍历右子树
-                stack.push(cur.right);
-                // 2.遍历左子树，下一轮循环就遍历左子树
                 cur = cur.left;
             } else {
-                // 取出右子树
-                cur = stack.pop();
+                TreeNode node = stack.pop();
+                cur = node.right;
             }
         }
 

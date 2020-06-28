@@ -22,14 +22,13 @@ class DFS {
             ans.add(cur.value);
 
             ArrayList<Node> curNexts = cur.nexts;
-            if (curNexts != null) {
-                for (Node next : curNexts) {
-                    if (!set.contains(next)) {
-                        stack.push(next);
-                        set.add(next);
-                    }
+            for (Node next : curNexts) {
+                if (!set.contains(next)) {
+                    set.add(next);
+                    stack.push(next);
                 }
             }
+
         }
 
         return ans;
