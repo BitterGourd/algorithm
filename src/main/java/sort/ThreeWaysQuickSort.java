@@ -1,7 +1,7 @@
 package sort;
 
 /**
- * 快速排序
+ * 三路随机快速排序
  *
  * 算法步骤：
  *  1.从数列中挑出一个元素，称为 "基准"（pivot）
@@ -9,7 +9,7 @@ package sort;
  *    在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
  *  3.递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序
  */
-public class QuickSort {
+public class ThreeWaysQuickSort {
 
     public void quickSort(int[] arr) {
         if (null == arr || arr.length < 2) {
@@ -21,9 +21,6 @@ public class QuickSort {
 
     private void quickSort(int[] arr, int L, int R) {
         if (L < R) {
-            //加上这个swap随机快排，使复杂度期望接近O(n*logn)，不出现大幅波动
-            swap(arr, (int) (Math.random() * (R - L + 1)) + 1, R);
-
             int[] p = partition(arr, L, R);
             quickSort(arr, L, p[0] - 1);
             quickSort(arr, p[1] + 1, R);
@@ -31,6 +28,9 @@ public class QuickSort {
     }
 
     private int[] partition(int[] arr, int L, int R) {
+        //加上这个swap随机快排，使复杂度期望接近O(n*logn)，不出现大幅波动
+        swap(arr, (int) (Math.random() * (R - L + 1)) + L, R);
+
         int less = L - 1;
         //选取最后一个数作为基准判断
         int greater = R;

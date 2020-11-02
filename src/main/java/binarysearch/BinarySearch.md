@@ -6,15 +6,15 @@
 
 ```java
 public int binarySearch(int[] nums, int target) {
-    int left = 0, right = nums.length - 1;
-    while (left <= right) { // 注意
+    int left = 0, right = nums.length - 1; // 注意 right
+    while (left <= right) { // 注意判断条件
         int mid = left + (right - left) >> 1;
         if (nums[mid] == target) {
             // 相关逻辑
         } else if (nums[mid] < target) {
             left = mid + 1;
         } else {
-            right = mid - 1; // 注意
+            right = mid - 1; // 注意 right
         }
     }
 
@@ -28,15 +28,15 @@ public int binarySearch(int[] nums, int target) {
 
 ```java
 public int binarySearch(int[] nums, int target) {
-    int left = 0, right = nums.length;
-    while (left < right) { // 注意
+    int left = 0, right = nums.length; // 注意 right
+    while (left < right) { // 注意判断条件
         int mid = left + (right - left) >> 1;
         if (nums[mid] == target) {
             // 相关逻辑
         } else if (nums[mid] < target) {
             left = mid + 1;
         } else {
-            right = mid; // 注意
+            right = mid; // 注意 right
         }
     }
 
